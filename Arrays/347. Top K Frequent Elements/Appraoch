@@ -21,7 +21,7 @@ Follow up: Your algorithm's time complexity must be better than O(n log n), wher
 
 ------------------------------------------------------------------------------------------------------------------------------
 
-METHOD 1:
+METHOD 1: [T: O(n log n), S: O(n)]
 
 1. Create a HashMap for storing Keys: nums, Values: frequency.
 2. Check if the number in the given array is already present in the Map.
@@ -31,7 +31,7 @@ METHOD 1:
 4. Return the top 'k' numbers.
 
 
-METHOD 2:
+METHOD 2: [T: O(nlogk), S: O(n + k)]
 
 Repeat steps 1 & 2.
 3. Use Max Heap
@@ -39,11 +39,11 @@ Repeat steps 1 & 2.
 4. Pop 'k' times.
 
 
-METHOD 3:
+METHOD 3: [T: O(n), S: O(n)]
 
 Repeat steps 1 & 2.
 3. Use Bucket Sorting.
-    a. Create an array with length same as the input array.
+    a. Create an array with a length the same as the input array.
     b. Consider that the indices of the new array are the frequencies.
     c. In the values of the array, create a sub-array and add all the nums to that sub-array based on their frequency.
 4. Start from right to left while returning the 'k' numbers as the highest frequent number is stationed at the end of the array.
