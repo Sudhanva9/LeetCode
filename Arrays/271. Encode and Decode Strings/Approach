@@ -78,7 +78,11 @@ DECODE:
 
 str: "mind", "games"
 
+__________________________
 
+TIME: O(n)
+
+SPACE: O(n)
 
 
 
