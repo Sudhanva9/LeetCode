@@ -42,9 +42,9 @@ APPROACH 1: SORTING
 7. Retrieve the list associated with the sorted key and add the original word to that list.
 8. Return the new list.
 
-Appraoch 2: Heap
+Approach 2: COUNTING
 
-Approach 3: Bucket Sort
+
 
 
 
