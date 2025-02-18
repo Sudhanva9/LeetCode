@@ -1,0 +1,43 @@
+Given an integer array nums and an integer k, return true if there are two distinct indices i and j in the array such that nums[i] == nums[j] and abs(i - j) <= k.
+
+Example 1:
+
+Input: nums = [1,2,3,1], k = 3
+Output: true
+Example 2:
+
+Input: nums = [1,0,1,1], k = 1
+Output: true
+Example 3:
+
+Input: nums = [1,2,3,1,2,3], k = 2
+Output: false
+ 
+Constraints:
+
+1 <= nums.length <= 105
+-109 <= nums[i] <= 109
+0 <= k <= 105
+
+_______________________________________________________
+
+SOLUTION
+
+SLIDING WINDOW - 
+
+1. Using a HashSet would be easy because, identifying duplicates becomes simpler and also, lookup, insertion, and deletion operations are performed in average-case constant time (O(1)).
+   So, declare a HashSet for a sliding window.
+2. Decalre a Left pointer to indicate the start of the window.
+3. Iterating through the array, 
+    - Since the window must be less than or equal to k, i.e., abs(i - j) <= k,
+      If the Right pointer is greater than k, 
+      i. Remove the Left pointer
+      ii. Increment the Left pointer by 1.
+    - If the window already contains the new R value, 
+      Return true.
+    - Add Right pointer to Window
+4. Return false if the window with k elements doesn't contain same elements.
+
+
+TIME: O(n)
+SPACE: O(k)
