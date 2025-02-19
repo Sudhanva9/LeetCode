@@ -37,4 +37,6 @@ SLIDING WINDOW -
 5. Return the result, 'res'.
 
 Time: O(n)
-Space: O(n)
+Space: O(m)
+
+Where n is the length of the string and m is the total number of unique characters in the string.
