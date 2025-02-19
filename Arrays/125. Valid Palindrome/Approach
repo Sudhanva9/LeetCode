@@ -1,0 +1,37 @@
+A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers. Given a string s, return true if it is a palindrome, or false otherwise.
+
+Example 1:
+
+Input: s = "A man, a plan, a canal: Panama"
+Output: true
+Explanation: "amanaplanacanalpanama" is a palindrome.
+Example 2:
+
+Input: s = "race a car"
+Output: false
+Explanation: "raceacar" is not a palindrome.
+Example 3:
+
+Input: s = " "
+Output: true
+Explanation: s is an empty string "" after removing non-alphanumeric characters.
+Since an empty string reads the same forward and backward, it is a palindrome.
+
+Constraints:
+
+1 <= s.length <= 2 * 105
+s consists only of printable ASCII characters.
+______________________________________________________________________________________
+
+SOLUTION
+
+TWO POINTERS - 
+
+1. We only need the AlphaNumeric characters to be compared from both ends, ignoring special characters and spaces.
+    - So, write a function to check if the character 'c' falls in the category.
+2. While Left[c] is not an aphaNum, L++; while Right[c] is not an alphaNum, R--.
+3. If the values from Left and Right are not equal, return False.
+4. Else, return True.
+
+TIME: O(n)
+SPACE: O(1)
