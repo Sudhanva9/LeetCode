@@ -1,0 +1,45 @@
+You are given a string s and an integer k. You can choose any character of the string and change it to any other uppercase English character. You can perform this operation at most k times.
+Return the length of the longest substring containing the same letter you can get after performing the above operations.
+
+Example 1:
+
+Input: s = "ABAB", k = 2
+Output: 4
+Explanation: Replace the two 'A's with two 'B's or vice versa.
+Example 2:
+
+Input: s = "AABABBA", k = 1
+Output: 4
+Explanation: Replace the one 'A' in the middle with 'B' and form "AABBBBA".
+The substring "BBBB" has the longest repeating letters, which is 4.
+There may exists other ways to achieve this answer too.
+ 
+Constraints:
+
+1 <= s.length <= 105
+s consists of only uppercase English letters.
+0 <= k <= s.length
+_________________________________________________________________
+
+SOLUTION
+
+SLIDING WINDOW - 
+
+1. Create a HashSet that is going to include all the characters from the given input string to compute the no.of occurances of the characters. res = 0 by default.
+2. To validate, we'll take the length of the window and subtract the max-count (of any char). This will give us a number of chars that could be replaced to form the largest substring of the same characters.
+   * But this value should be <= 'k', because we could only replace 'k' no.of characters.
+     {WINDOW - COUNT = VAL  <=  k}
+3. To this we have to add a Sliding window.
+    1) Start at the beginning with 2 pointers on the same character.
+    2) Increment the count by 1 as the Right pointer finds the same character.
+    3) While the [Window - Count > k]
+        If the character at Left pointer is same as the char
+        Decrement the counter by 1. (Removing the char)
+        Increment the Left pointer by 1. (Shifting the L pointer)
+4. Result is the Max value of (R - L + 1)  OR the Result itself.
+5. Return the result.
+
+TIME: O(m*n)
+SPACE: O(m)
+
+Where n is the length of the string and m is the total number of unique characters in the string.
