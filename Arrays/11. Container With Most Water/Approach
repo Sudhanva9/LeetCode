@@ -1,0 +1,33 @@
+You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
+Find two lines that together with the x-axis form a container, such that the container contains the most water.
+Return the maximum amount of water a container can store.
+Notice that you may not slant the container.
+
+Input: height = [1,8,6,2,5,4,8,3,7]
+Output: 49
+Explanation: The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of water (blue section) the container can contain is 49.
+
+Example 2:
+Input: height = [1,1]
+Output: 1
+
+Constraints:
+
+n == height.length
+2 <= n <= 105
+0 <= height[i] <= 104
+_______________________________________
+
+SOLUTION
+
+TWO POINTERS - 
+
+1. Since we require the maximum area, let's start our poiinters from each end. Let the default res = 0.
+2. Iterating over the heights, the area = (R - L) * Minimum(h[L] or h[R]).
+3. Update the res with which ever is the greatest of the two: (res or area).
+4. If the h[L] < h[R]: L++.
+5. Else if the h[R] < h[L] OR h[R] == h[L]: R--.
+6. Return the updated result.
+
+TIME: O(n)
+SPACE: O(1)
