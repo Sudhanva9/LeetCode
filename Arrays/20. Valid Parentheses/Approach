@@ -1,0 +1,46 @@
+Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+An input string is valid if:
+
+Open brackets must be closed by the same type of brackets.
+Open brackets must be closed in the correct order.
+Every close bracket has a corresponding open bracket of the same type.
+
+Example 1:
+Input: s = "()"
+Output: true
+
+Example 2:
+Input: s = "()[]{}"
+Output: true
+
+Example 3:
+Input: s = "(]"
+Output: false
+
+Example 4:
+Input: s = "([])"
+Output: true
+
+Constraints:
+
+1 <= s.length <= 104
+s consists of parentheses only '()[]{}'.
+
+______________________________________________________
+
+SOLUTION
+
+STACK - 
+
+Create a Map for storing each of the open and close parentheses as key, value pairs to be referred by the algorithm.
+
+1. Iterate over the string and check if the current element is an open parantheses.
+    - If it is an open parantheses, add to stack.
+2. If the current element is a closing parentheses, check the recent element in Stack:
+    - If the element in the stack matches the type of the current closing parentheses : pop from stack.
+    - Else, return false.
+3. Finally, if the stack is empty, return true, else false.
+
+TIME: O(n)
+SPACE: O(n)
