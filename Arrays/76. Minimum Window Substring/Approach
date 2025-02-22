@@ -1,0 +1,51 @@
+Given two strings s and t of lengths m and n respectively, return the minimum window 
+substring of s such that every character in t (including duplicates) is included in the window. If there is no such substring, return the empty string "".
+The testcases will be generated such that the answer is unique.
+
+Example 1:
+
+Input: s = "ADOBECODEBANC", t = "ABC"
+Output: "BANC"
+Explanation: The minimum window substring "BANC" includes 'A', 'B', and 'C' from string t.
+Example 2:
+
+Input: s = "a", t = "a"
+Output: "a"
+Explanation: The entire string s is the minimum window.
+Example 3:
+
+Input: s = "a", t = "aa"
+Output: ""
+Explanation: Both 'a's from t must be included in the window.
+Since the largest window of s only has one 'a', return empty string.
+
+Constraints:
+
+m == s.length
+n == t.length
+1 <= m, n <= 105
+s and t consist of uppercase and lowercase English letters.
+___________________________________________________________________
+
+SOLUTION
+
+SLIDING WINDOW - 
+
+1. To track the letters in given string 't' and their count, we can create a HashMap. We can use another HashMap to track the letters and their count for our current window.
+2. The variable 'have' tells us how many total no.of letter counts we have in our current window, and the variable 'need' would tell how many we need.
+3. Iterating through the given string 's' with Right pointer, if the R lands on a letter that is present in countT map AND that is equal in 'window' map and 'CountT' map:
+    - Increment 'have' by 1.
+4. When have == need
+    If(r - l) < resLen : 
+      1) Update resLen with (r - l) because we need the minimum length.
+      2) res[0] = l and res[1] = r;
+5. Remove the Left most char from current winodow:
+    If that char is present in the countT map and that char count is < char count in CountT:
+      - have--
+   Increment the Left pointer by 1.
+6. Return the resLen: If resLen == maxvalue, return "" (empty string), else, return the indeces of the l and r.
+
+TIME: O(n)
+SPACE: O(m)
+
+Where n is the length of the string s and m is the total number of unique characters in the strings t and s.
