@@ -1,0 +1,39 @@
+Given the head of a singly linked list, reverse the list, and return the reversed list.
+
+Example 1:
+
+Input: head = [1,2,3,4,5]
+Output: [5,4,3,2,1]
+Example 2:
+
+Input: head = [1,2]
+Output: [2,1]
+Example 3:
+
+Input: head = []
+Output: []
+
+Constraints:
+
+The number of nodes in the list is the range [0, 5000].
+-5000 <= Node.val <= 5000
+______________________________________________________
+
+SOLUTION
+
+ITERATION
+
+1. Declare variables to point the previous node = 'prev', current node = 'current', and the next node = 'next'. 
+    prev = null //Initially
+2. While the current is not null:
+    next = current.next : To not loose the next value's information, we are storing it in the 'next' variable.
+    current.next = prev
+Now shift the prev, curr, and next.
+    prev = current
+    current = next
+3. Finally, when current becomes null, previous becomes the new head.
+4. Return the prev value.
+
+
+TIME: O(n)
+SPACE: O(1)
