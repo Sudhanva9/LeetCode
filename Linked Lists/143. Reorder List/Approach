@@ -1,0 +1,30 @@
+You are given the head of a singly linked-list. The list can be represented as:
+L0 → L1 → … → Ln - 1 → Ln
+Reorder the list to be on the following form:
+L0 → Ln → L1 → Ln - 1 → L2 → Ln - 2 → …
+You may not modify the values in the list's nodes. Only nodes themselves may be changed.
+
+Example 1:
+
+Input: head = [1,2,3,4]
+Output: [1,4,2,3]
+Example 2:
+
+Input: head = [1,2,3,4,5]
+Output: [1,5,2,4,3]
+
+Constraints:
+
+The number of nodes in the list is in the range [1, 5 * 104].
+1 <= Node.val <= 1000
+______________________________________________________________________
+
+SOLUTION
+
+1. Break the given list into 2 halves using "Slow & Fast" pointers.
+2. Once there are 2 lists, point the last node of the first list to null.
+3. Reverse the second list.
+4. Using two pointers alternate and add the lists. To handle the breaking of links to their subsequent nodes, use two temporary variables to store those nodes.
+
+TIME: O(n)
+SPACE: O(1)
