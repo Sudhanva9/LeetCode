@@ -1,0 +1,57 @@
+You are given an array of k linked-lists lists, each linked-list is sorted in ascending order.
+Merge all the linked-lists into one sorted linked-list and return it.
+
+Example 1:
+
+Input: lists = [[1,4,5],[1,3,4],[2,6]]
+Output: [1,1,2,3,4,4,5,6]
+Explanation: The linked-lists are:
+[
+  1->4->5,
+  1->3->4,
+  2->6
+]
+merging them into one sorted list:
+1->1->2->3->4->4->5->6
+Example 2:
+
+Input: lists = []
+Output: []
+Example 3:
+
+Input: lists = [[]]
+Output: []
+
+Constraints:
+
+k == lists.length
+0 <= k <= 104
+0 <= lists[i].length <= 500
+-104 <= lists[i][j] <= 104
+lists[i] is sorted in ascending order.
+The sum of lists[i].length will not exceed 104.
+
+________________________________________________________________
+
+SOLUTION
+
+Using two functions: one for merging 2 lists at a time, and the other for sorting those two lists.
+1. If the given lists are null: return null.
+2. Iterating through the list of lists, take 2 lists in two variables. If the lists are in odd number and there is no other list, take null.
+3. Add these two lists to a new list after sorting them using another function (mergeLists).
+4. Return the final single sorted list.
+
+Merge List Function (Sorting):
+
+1. Iterating through both Linked Lists, 
+    If the List1 val is < List2 val: add the List1 val to the new list AND Increment the List1 to next node. 
+    Else if the List2 val is < List2 val: add the List2 val to the new list AND Increment the List2 to next node.
+2. Increment the result node to next.
+3. At the end, if either of the Lists is completed and the other has nodes left, add the leftover nodes to the result list.
+    If L1 != null: node.next  = L1, else node.next = L2.
+4. Return dummy.next.
+
+TIME: O(nlogk)
+SPACE: O(k)
+
+Where k is the total number of lists and n is the total number of nodes across k lists.
