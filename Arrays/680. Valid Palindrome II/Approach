@@ -1,0 +1,49 @@
+Given a string s, return true if the s can be palindrome after deleting at most one character from it.
+
+Example 1:
+
+Input: s = "aba"
+Output: true
+Example 2:
+
+Input: s = "abca"
+Output: true
+Explanation: You could delete the character 'c'.
+Example 3:
+
+Input: s = "abc"
+Output: false
+
+Constraints:
+
+1 <= s.length <= 105
+s consists of lowercase English letters.
+___________________________________________
+
+SOLUTION
+
+TWO POINTERS - 
+
+a    a    a    z
+L              R
+
+Here L and R are not equal:
+We can either skip Left or Right.
+
+Incase we skip Left:
+a    a    z
+L         R
+They are still not equal: Try other way
+We skip Right:
+a    a    a
+L         R
+They are equal: Return True. If even in this case would have not matched, we return false.
+
+Write a helper function to check if a given string is a Valid Palindrome.
+In the main function, if the L and R are equal, L++ and R--.
+Else if the L and R are not equal:
+  1) Pass the String by skipping Left element into our helper function to check if they are equal now and return the result. OR
+  2) Pass the String by skipping Right element into our helper function to check if they are equal now and return the result.
+
+TIME: O(n)
+SPACE: O(1)
