@@ -36,5 +36,5 @@ SOLUTION
    Else, move r to mid - 1 to search in the left half.
 8. Return res as the minimum element in the rotated sorted array.
 
-TIME: O(n)
+TIME: O(log n)
 SPACE: O(1)
