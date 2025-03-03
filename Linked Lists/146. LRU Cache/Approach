@@ -1,0 +1,73 @@
+Design a data structure that follows the constraints of a Least Recently Used (LRU) cache.
+Implement the LRUCache class:
+LRUCache(int capacity) Initialize the LRU cache with positive size capacity.
+int get(int key) Return the value of the key if the key exists, otherwise return -1.
+void put(int key, int value) Update the value of the key if the key exists. Otherwise, add the key-value pair to the cache. If the number of keys exceeds the capacity from this operation, evict the least recently used key.
+The functions get and put must each run in O(1) average time complexity.
+
+Example 1:
+Input
+["LRUCache", "put", "put", "get", "put", "get", "put", "get", "get", "get"]
+[[2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4]]
+Output
+[null, null, null, 1, null, -1, null, -1, 3, 4]
+
+Explanation
+LRUCache lRUCache = new LRUCache(2);
+lRUCache.put(1, 1); // cache is {1=1}
+lRUCache.put(2, 2); // cache is {1=1, 2=2}
+lRUCache.get(1);    // return 1
+lRUCache.put(3, 3); // LRU key was 2, evicts key 2, cache is {1=1, 3=3}
+lRUCache.get(2);    // returns -1 (not found)
+lRUCache.put(4, 4); // LRU key was 1, evicts key 1, cache is {4=4, 3=3}
+lRUCache.get(1);    // return -1 (not found)
+lRUCache.get(3);    // return 3
+lRUCache.get(4);    // return 4
+
+Constraints:
+
+1 <= capacity <= 3000
+0 <= key <= 104
+0 <= value <= 105
+At most 2 * 105 calls will be made to get and put.
+____________________________________________________________
+
+SOLUTION
+
+DOUBLY LINKED LIST - 
+
+We will use the following Data Structures:
+1. A Doubly Linked List: This is used to easily swap the Least Recently Used nodes and the Most Recently Used nodes. Using Left and Right pointers, we can keep track of the nodes that are frequently used.
+    - Left: LRU; Right: MRU.
+2. A HashMap: This is used to store the Keys, and its corresponding nodes (as values). These could be Inserted and Removed in O(1) Time Complexity in a HashMap.
+3. Then we need to track the capacity of the HashMap (Cache): 
+    - If exceeds: remove the LRU.
+    - If the key is already present: Remove the key.
+    - Else, Insert the Key, and Value pair in the HashMap and update the Linked List.
+
+OPERATIONS -
+
+1. GET: 
+    - If the required Key is present in the HashMap: Return the Value; 
+    - Else, return -1.
+2. PUT:
+    - If exeeds: remove the LRU.
+    - If the key is already present: Remove the key.
+    - Else, Insert the Key, and Value pair in the HashMap and update the Linked List.
+3. REMOVE: 
+    - Store the node's previous in prev.
+    - Store the node's next in nxt.
+    - prev node's next = nxt.
+    - nxt node's previous = prev.
+4. INSERT:
+    - Get the previous node → prev stores the node before this.right.
+    - Link prev to new node → prev.next = node connects previous node to node.
+    - Set new node's prev → node.prev = prev links back to prev.
+    - Set new node's next → node.next = this.right connects node to this.right.
+    - Update right's prev → this.right.prev = node updates this.right's previous pointer.
+
+
+TIME: O(1)
+SPACE: O(n)
+
+Time complexity: O(1) for each put() and get() operation.
