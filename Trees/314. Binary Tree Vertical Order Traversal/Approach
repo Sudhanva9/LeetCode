@@ -1,0 +1,56 @@
+Given the root of a binary tree, return the vertical order traversal of its nodes' values. (i.e., from top to bottom, column by column).
+If two nodes are in the same row and column, the order should be from left to right.
+
+Example 1:
+
+Input: root = [3,9,20,null,null,15,7]
+Output: [[9],[3,15],[20],[7]]
+
+Example 2:
+Input: root = [3,9,8,4,0,1,7]
+Output: [[4],[9],[3,0,1],[8],[7]]
+
+Example 3:
+Input: root = [1,2,3,4,10,9,11,null,5,null,null,null,null,null,null,null,6]
+Output: [[4],[2,5],[1,10,9,6],[3],[11]]
+
+Constraints:
+
+The number of nodes in the tree is in the range [0, 100].
+-100 <= Node.val <= 100
+_________________________________________________________
+
+SOLUTION
+
+BFS WITHOUT SORTING - 
+
+1. Consider the tree is on a cartesian plane; each node can be mapped to a certain coordinate. If we consider the 'x' values of the coordinates of each node,
+    We can see what nodes fall in each column and keep track from left to right.
+2.- We need to have an output list to return the result values
+  - A HahMap to track each coordinate and the list of all corresponding nodes.
+  - A Queue for BFS and getting coordinates of each node value.
+  - Variables 'minColumn' and 'maxColumn' to keep track of the lowest and highest 'x' coordinates to return the sorted list of lists.
+
+1️⃣ Initialize Data Structures:
+    A HashMap (columnTable) stores nodes by column index.
+    A Queue holds (TreeNode, column index) pairs for BFS traversal.
+    minColumn and maxColumn track the leftmost and rightmost columns.
+
+2️⃣ Start BFS with Root:
+    Add the root node to the queue with column 0.
+
+3️⃣ Process Nodes Level by Level (BFS):
+    Poll a node from the queue.
+    Add its value to columnTable under its column index.
+    Update minColumn and maxColumn as needed.
+    Enqueue the left child with column - 1.
+    Enqueue the right child with column + 1.
+
+4️⃣ Extract Results in Column Order:
+    Iterate from minColumn to maxColumn.
+    Collect values from columnTable into the output list.
+
+5️⃣ Return the Final List of Columns.
+
+TIME: O(n)
+SPACE: O(n)
