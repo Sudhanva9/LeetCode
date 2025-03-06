@@ -1,0 +1,47 @@
+Given an array arr of positive integers sorted in a strictly increasing order, and an integer k.
+Return the kth positive integer that is missing from this array.
+
+Example 1:
+Input: arr = [2,3,4,7,11], k = 5
+Output: 9
+Explanation: The missing positive integers are [1,5,6,8,9,10,12,13,...]. The 5th missing positive integer is 9.
+
+Example 2:
+Input: arr = [1,2,3,4], k = 2
+Output: 6
+Explanation: The missing positive integers are [5,6,7,...]. The 2nd missing positive integer is 6.
+
+Constraints:
+
+1 <= arr.length <= 1000
+1 <= arr[i] <= 1000
+1 <= k <= 1000
+arr[i] < arr[j] for 1 <= i < j <= arr.length
+______________________________________________
+
+SOLUTION
+
+1. We have array of numbers 'nums' and 'k'.
+
+nums = [2, 3, 4, 7, 11]; k = 5
+
+missing = [1, 5, 6, 8, |9|, 10]
+           1  2  3  4  |5|
+
+So, we need to return the 5th value that is '9'.
+
+1. Let's start with 2 pointers left and right from each side.
+2. To do a Binary Search, we could use a mid point(pivot) between the left and right pointers, and search only one side as per the required condition.
+3. To check the no.of missing elements, we could use a formula(of sort):
+    - Missing Values = nums[mid] - mid - 1.
+4. While L <= R:
+5. We can use this to see if this Missing Value is greater than or less than the given 'k'.
+    - If the M.V < K: Search in the right half - left = mid + 1.
+    - Else if the M.V > k: Search in the left half - right = mid - 1.
+6. Else, if the R < L:
+    - Left(Index) + 'k' = Kth missing value.
+7. Return Left + k.
+
+
+TIME: O(log n) - Binary Search (log n)
+SPACE: O(1)
