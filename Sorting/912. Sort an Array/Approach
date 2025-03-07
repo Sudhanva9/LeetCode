@@ -19,6 +19,8 @@ __________________________________________________________
 
 SOLUTION
 
+MERGE SORT - 
+
 1. Divide the Array (Recursive Step):
     Use Merge Sort, which follows the divide and conquer approach.
     Recursively divide the array into two halves until each half contains only one element.
