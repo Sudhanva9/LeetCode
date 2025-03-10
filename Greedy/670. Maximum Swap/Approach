@@ -1,0 +1,32 @@
+You are given an integer num. You can swap two digits at most once to get the maximum valued number.
+Return the maximum valued number you can get.
+
+Example 1:
+Input: num = 2736
+Output: 7236
+Explanation: Swap the number 2 and the number 7.
+
+Example 2:
+Input: num = 9973
+Output: 9973
+Explanation: No swap.
+ 
+Constraints:
+0 <= num <= 108
+_____________________________________________
+
+SOLUTION
+
+1. Convert the number into a character array
+2. This allows us to easily manipulate individual digits.
+    Precompute the rightmost maximum digit for each position
+3. Create an array maxRightIndex where maxRightIndex[i] stores the index of the largest digit to the right of i (including i itself).
+    Traverse the number from right to left to fill this array.
+    Find the first place where swapping increases the number
+4. Traverse from left to right and find the first index where the current digit is smaller than the largest digit to its right.
+    Swap these two digits.
+    Return the updated number
+5. If no swap is needed, return the original number.
+
+TIME: O(n)
+SPACE: O(n)
