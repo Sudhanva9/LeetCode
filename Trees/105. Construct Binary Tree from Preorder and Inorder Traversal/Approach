@@ -1,0 +1,38 @@
+Given two integer arrays preorder and inorder where preorder is the preorder traversal of a binary tree and inorder is the inorder traversal of the same tree, construct and return the binary tree.
+
+Example 1:
+Input: preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
+Output: [3,9,20,null,null,15,7]
+
+Example 2:
+Input: preorder = [-1], inorder = [-1]
+Output: [-1]
+
+Constraints:
+
+1 <= preorder.length <= 3000
+inorder.length == preorder.length
+-3000 <= preorder[i], inorder[i] <= 3000
+preorder and inorder consist of unique values.
+Each value of inorder also appears in preorder.
+preorder is guaranteed to be the preorder traversal of the tree.
+inorder is guaranteed to be the inorder traversal of the tree.
+______________________________________________________________
+
+SOLUTION
+
+1. Use Preorder to Identify Root
+    The first element in the preorder array is always the root of the tree.
+    Start processing from preorder[0].
+2. Use Inorder to Determine Left and Right Subtrees
+    Find the root's position in the inorder array.
+    Elements left of the root in inorder form the left subtree.
+    Elements right of the root in inorder form the right subtree.
+3. Recursively Build Left and Right Subtrees
+    Move to the next element in preorder to process the left subtree.
+    Stop when all elements in a subtree are processed.
+4. Base Case for Recursion
+    If we process all elements, return null.
+
+TIME: O(n)
+SAPCE: O(n) - Recursion Stack
