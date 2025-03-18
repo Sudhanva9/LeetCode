@@ -1,0 +1,38 @@
+Given an m x n grid of characters board and a string word, return true if word exists in the grid.
+The word can be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once.
+
+Example 1:
+Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCCED"
+Output: true
+
+Example 2:
+Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "SEE"
+Output: true
+
+Example 3:
+Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCB"
+Output: false
+
+Constraints:
+
+m == board.length
+n = board[i].length
+1 <= m, n <= 6
+1 <= word.length <= 15
+board and word consists of only lowercase and uppercase English letters.
+__________________________________________________
+
+SOLUTION
+
+1. Get the number of rows and columns in the board.
+2. Try to start the search from every cell in the board.
+3. If we find a path that matches the word, return true.
+4. Use DFS to explore all 4 directions (up, down, left, right).
+5. If we go out of bounds, revisit a cell, or the character doesn’t match, return false.
+6. Mark the current cell as visited to avoid reuse in the same path.
+7. Recursively check the next letter in all 4 directions.
+8. Backtrack by unmarking the cell before returning.
+9. If any path finds the word, return true, otherwise return false.
+
+TIME: O(4^N) - Not Optimal
+SPACE: O(n)
