@@ -1,0 +1,41 @@
+Given the root of a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.
+
+Example 1:
+Input: root = [1,2,3,null,5,null,4]
+Output: [1,3,4]
+Explanation:
+
+Example 2:
+Input: root = [1,2,3,4,null,null,null,5]
+Output: [1,3,4,5]
+Explanation:
+
+Example 3:
+Input: root = [1,null,3]
+Output: [1,3]
+
+Example 4:
+Input: root = []
+Output: []
+
+Constraints:
+
+The number of nodes in the tree is in the range [0, 100].
+-100 <= Node.val <= 100
+_______________________________________________
+
+SOLUTION
+
+1. We use a queue (q) to perform a level-order traversal of the tree.
+2. We process nodes level by level, keeping track of the last node at each level.
+3. At each level, we determine the number of nodes (qLen) in the queue.
+4. We iterate through all nodes at the current level.
+5. For each node, we update rightSide to store the most recently processed node at this level.
+6. We add the left and right children of the node to the queue for the next level.
+7. After processing all nodes at a level, we add rightSide to the result list.
+8. This ensures that the last node processed at each level (the rightmost node) is stored.
+9. We repeat this process until all levels are processed.
+10. The result list contains the right-side view of the tree. 
+
+TIME: O(n)
+SPACE: O(n)
