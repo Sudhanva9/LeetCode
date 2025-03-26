@@ -1,0 +1,30 @@
+Given an array of meeting time intervals intervals where intervals[i] = [starti, endi], return the minimum number of conference rooms required.
+
+Example 1:
+Input: intervals = [[0,30],[5,10],[15,20]]
+Output: 2
+
+Example 2:
+Input: intervals = [[7,10],[2,4]]
+Output: 1
+
+Constraints:
+
+1 <= intervals.length <= 104
+0 <= starti < endi <= 106
+_____________________________
+
+SOLUTION
+
+MIN HEAP:
+
+1. If there are no meetings, return 0.
+2. Sort the meetings by their start time.
+3. Use a min-heap (priority queue) to track end times of meetings.
+4. Iterate through the meetings:
+    If a meeting can reuse a room (earliest ending meeting finishes before or at the current start time), remove it from the heap.
+    Add the current meeting's end time to the heap.
+5. The heap's size at the end represents the minimum number of rooms needed.
+
+TIME: O(n log n)
+SPACE: O(n)
