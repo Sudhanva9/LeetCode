@@ -1,0 +1,38 @@
+A parentheses string is valid if and only if:
+It is the empty string,
+It can be written as AB (A concatenated with B), where A and B are valid strings, or
+It can be written as (A), where A is a valid string.
+You are given a parentheses string s. In one move, you can insert a parenthesis at any position of the string.
+
+For example, if s = "()))", you can insert an opening parenthesis to be "(()))" or a closing parenthesis to be "())))".
+Return the minimum number of moves required to make s valid.
+
+Example 1:
+Input: s = "())"
+Output: 1
+
+Example 2:
+Input: s = "((("
+Output: 3
+
+Constraints:
+
+1 <= s.length <= 1000
+s[i] is either '(' or ')'.
+_________________________________________________
+
+SOLUTION
+
+WITHOUT STACK: 
+
+1. Initialize openCount to track unmatched '(' and res to count unmatched ')'.
+2. Iterate through each character in the string.
+3. If the character is '(', increase openCount since we have an unmatched opening bracket.
+4. If the character is ')':
+    If there is no unmatched '(', increase res because we need an extra '(' to balance it.
+    Otherwise, decrease openCount as it gets matched with this ')'.
+5. After looping, the total number of unbalanced brackets is openCount + res.
+6. Return this total as the minimum number of additions needed to make the string valid.
+
+TIME: O(n)
+SPACE: O(1)
