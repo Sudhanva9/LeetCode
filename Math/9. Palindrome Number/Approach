@@ -1,0 +1,42 @@
+Given an integer x, return true if x is a palindrome, and false otherwise.
+
+Example 1:
+Input: x = 121
+Output: true
+Explanation: 121 reads as 121 from left to right and from right to left.
+
+Example 2:
+Input: x = -121
+Output: false
+Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.
+
+Example 3:
+Input: x = 10
+Output: false
+Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
+
+Constraints:
+-231 <= x <= 231 - 1
+____________________________________________
+
+SOLUTION
+
+revertedNumber = revertedNumber * 10 + (x % 10);
+
+1. Initial Check:
+    If the number x is negative, it's immediately not a palindrome, so the function returns false.
+    If the number ends with a zero (but is not zero itself), it's not a palindrome because a number like 10 cannot be the same when reversed.
+
+2. Reversing the Number:
+    A variable revertedNumber is used to store the reversed part of the number.
+    The while loop runs as long as x is greater than the reversed number (revertedNumber).
+    In each iteration, the last digit of x is added to revertedNumber, and x is reduced by removing its last digit.
+
+3. Palindrome Check:
+    Once the loop ends, the number is either fully reversed, or the reversed part is half of the original number.
+    To check if x is a palindrome:
+        If x equals revertedNumber, the original number is the same when reversed.
+        If x equals revertedNumber / 10, it accounts for odd-length numbers where the middle digit is ignored.
+
+TIME: O(log n)
+SPACE: O(1)
