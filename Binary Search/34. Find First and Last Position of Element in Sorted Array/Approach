@@ -1,0 +1,43 @@
+Given an array of integers nums sorted in non-decreasing order, find the starting and ending position of a given target value.
+If target is not found in the array, return [-1, -1].
+You must write an algorithm with O(log n) runtime complexity.
+
+Example 1:
+Input: nums = [5,7,7,8,8,10], target = 8
+Output: [3,4]
+
+Example 2:
+Input: nums = [5,7,7,8,8,10], target = 6
+Output: [-1,-1]
+
+Example 3:
+Input: nums = [], target = 0
+Output: [-1,-1]
+
+Constraints:
+0 <= nums.length <= 105
+-109 <= nums[i] <= 109
+nums is a non-decreasing array.
+-109 <= target <= 109
+_________________________________________________
+
+SOLUTION
+
+BINARY SEARCH:
+
+1. searchRange function:
+    This function takes an array of integers (nums) and a target value (target).
+    It calls the binarySearch function twice: first to find the leftmost index of the target (leftBias = true), then to find the rightmost index (leftBias = false).
+    It returns an array with two values: the left and right indices of the target in the array.
+
+2. binarySearch function:
+    This function performs binary search on the array to find the target's position.
+    It uses two pointers (l for left and r for right) to narrow down the search range.
+    The leftBias flag determines the search behavior:
+       - If leftBias is true, the search continues to the left to find the first occurrence.
+       - If leftBias is false, the search continues to the right to find the last occurrence.
+    When the target is found, the index i is updated and the search direction is adjusted based on the leftBias flag.
+    The function returns the final index where the target is found.
+
+TIME: O(log n)
+SPACE: O(1)
