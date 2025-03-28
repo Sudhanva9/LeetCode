@@ -1,0 +1,37 @@
+Write a function to find the longest common prefix string amongst an array of strings.
+If there is no common prefix, return an empty string "".
+
+Example 1:
+Input: strs = ["flower","flow","flight"]
+Output: "fl"
+
+Example 2:
+Input: strs = ["dog","racecar","car"]
+Output: ""
+Explanation: There is no common prefix among the input strings.
+ 
+Constraints:
+1 <= strs.length <= 200
+0 <= strs[i].length <= 200
+strs[i] consists of only lowercase English letters if it is non-empty.
+________________________________________
+
+SOLUTION
+
+1. Initial Check:
+    If the input array strs is empty, return an empty string "" as there is no common prefix.
+
+2. Set the Prefix:
+    Set the initial prefix to be the first string in the array strs[0].
+
+3. Iterate Through the Array:
+    For each string strs[i] in the array (starting from the second string), check if the current prefix is a prefix of the string.
+    If the prefix is not a prefix of strs[i], shorten the prefix by removing the last character and check again.
+    Repeat this process until either a common prefix is found or the prefix becomes empty.
+
+4. Return the Result:
+    Once a valid common prefix is found, return the prefix.
+    If no common prefix exists (i.e., the prefix becomes empty), return "".
+
+TIME: O(S) -  where S is the sum of all characters in all strings.
+SPACE: O(1)
