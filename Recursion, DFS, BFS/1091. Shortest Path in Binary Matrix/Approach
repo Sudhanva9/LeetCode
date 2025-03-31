@@ -25,6 +25,8 @@ ___________________________________________________
 
 SOLUTION
 
+Breadth First Search
+
 1. Check if the starting or ending cell is blocked (value 1). If so, return -1.
 2. Define all 8 possible movement directions in a 2D array.
 3. Use a boolean matrix (visit) to track visited cells.
