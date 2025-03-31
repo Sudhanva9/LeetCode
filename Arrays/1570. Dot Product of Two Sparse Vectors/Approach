@@ -38,5 +38,5 @@ SOLUTION
 5. Continue until one of the lists is fully traversed.
 6. Return the computed dot product.
 
-TIME: 
-SPACE: 
+TIME: O(n) for creating the <index, value> pair for non-zero values; O(L1+ L2​) for calculating the dot product.
+SPACE: O(L) for creating the <index, value> pairs for non-zero values. O(1) for calculating the dot product.
