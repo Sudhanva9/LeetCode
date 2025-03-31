@@ -1,0 +1,42 @@
+Given two sparse vectors, compute their dot product.
+Implement class SparseVector:
+SparseVector(nums) Initializes the object with the vector nums
+dotProduct(vec) Compute the dot product between the instance of SparseVector and vec
+A sparse vector is a vector that has mostly zero values, you should store the sparse vector efficiently and compute the dot product between two SparseVector.
+Follow up: What if only one of the vectors is sparse?
+
+Example 1:
+Input: nums1 = [1,0,0,2,3], nums2 = [0,3,0,4,0]
+Output: 8
+Explanation: v1 = SparseVector(nums1) , v2 = SparseVector(nums2)
+v1.dotProduct(v2) = 1*0 + 0*3 + 0*0 + 2*4 + 3*0 = 8
+
+Example 2:
+Input: nums1 = [0,1,0,0,0], nums2 = [0,0,0,0,2]
+Output: 0
+Explanation: v1 = SparseVector(nums1) , v2 = SparseVector(nums2)
+v1.dotProduct(v2) = 0*0 + 1*0 + 0*0 + 0*0 + 0*2 = 0
+
+Example 3:
+Input: nums1 = [0,1,0,0,2,0,0], nums2 = [1,0,0,0,3,0,4]
+Output: 6
+
+Constraints:
+n == nums1.length == nums2.length
+1 <= n <= 10^5
+0 <= nums1[i], nums2[i] <= 100
+__________________________________________________________
+
+SOLUTION
+
+<INDEX, VALUE> PAIRS:
+
+1. Store the nonzero elements of the vector as index-value pairs in a list.
+2. To compute the dot product, use two pointers to iterate through the lists of both vectors.
+3. If indices match, multiply the values and add to the result.
+4. If indices don’t match, move the pointer of the vector with the smaller index.
+5. Continue until one of the lists is fully traversed.
+6. Return the computed dot product.
+
+TIME: 
+SPACE: 
