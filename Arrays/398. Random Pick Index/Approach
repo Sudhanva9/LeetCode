@@ -1,0 +1,43 @@
+Given an integer array nums with possible duplicates, randomly output the index of a given target number. You can assume that the given target number must exist in the array.
+Implement the Solution class:
+Solution(int[] nums) Initializes the object with the array nums.
+int pick(int target) Picks a random index i from nums where nums[i] == target. If there are multiple valid i's, then each index should have an equal probability of returning.
+ 
+Example 1:
+Input
+["Solution", "pick", "pick", "pick"]
+[[[1, 2, 3, 3, 3]], [3], [1], [3]]
+Output
+[null, 4, 0, 2]
+
+Explanation
+Solution solution = new Solution([1, 2, 3, 3, 3]);
+solution.pick(3); // It should return either index 2, 3, or 4 randomly. Each index should have equal probability of returning.
+solution.pick(1); // It should return 0. Since in the array only nums[0] is equal to 1.
+solution.pick(3); // It should return either index 2, 3, or 4 randomly. Each index should have equal probability of returning.
+ 
+Constraints:
+1 <= nums.length <= 2 * 104
+-231 <= nums[i] <= 231 - 1
+target is an integer from nums.
+At most 104 calls will be made to pick.
+____________________________________________
+
+SOLUTION
+
+1. Initialization (Solution constructor):
+    A Map (map) is created to store each number in the array as a key, with the value being a list of indices where that number appears.
+    A Random object (rand) is initialized to generate random numbers.
+2. Populating the Map:
+    For each element in the nums array, its index is added to the list corresponding to that number in the map.
+    This helps in tracking all positions where a number appears.
+3. Picking an Index (pick method):
+    Given a target, the method retrieves the list of indices where that target appears.
+    A random index is selected from the list using rand.nextInt(n), where n is the size of the list.
+    The randomly selected index is returned.
+
+TIME: O(1)
+If N represents the size of the nums array, building indices takes O(N) time.
+pick method takes O(1) time.
+
+SPACE: O(n)
