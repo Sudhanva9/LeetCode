@@ -1,0 +1,35 @@
+Given an m x n matrix mat, return an array of all the elements of the array in a diagonal order.
+
+Example 1:
+Input: mat = [[1,2,3],[4,5,6],[7,8,9]]
+Output: [1,2,4,7,5,3,6,8,9]
+
+Example 2:
+Input: mat = [[1,2],[3,4]]
+Output: [1,2,3,4]
+ 
+Constraints:
+m == mat.length
+n == mat[i].length
+1 <= m, n <= 104
+1 <= m * n <= 104
+-105 <= mat[i][j] <= 105
+___________________________________________
+
+SOLUTION
+
+HASHMAP:
+
+1. get the number of rows (R) and columns (C) of the matrix.
+2. create a HashMap (diagonalDict) where the key is the sum of row and column indices (r + c), and the value is a list storing elements of that diagonal.
+3. iterate through the matrix and add each element to its corresponding diagonal in diagonalDict.
+4. create a list (res) to store the final diagonal traversal order.
+5. process each diagonal in increasing order of keys (r + c).
+6. If the diagonal index (key) is even, we reverse the list to follow the required order.
+7. add all elements of the diagonal to res.
+8. continue this until all diagonals are processed.
+9. Finally, we convert the res list to an integer array and return it. 
+
+TIME: O(R*C)
+SPACE: O(R*C)
+
