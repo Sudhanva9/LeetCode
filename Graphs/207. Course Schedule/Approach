@@ -1,0 +1,39 @@
+There are a total of numCourses courses you have to take, labeled from 0 to numCourses - 1. You are given an array prerequisites where prerequisites[i] = [ai, bi] indicates that you must take course bi first if you want to take course ai.
+For example, the pair [0, 1], indicates that to take course 0 you have to first take course 1.
+Return true if you can finish all courses. Otherwise, return false.
+
+Example 1:
+Input: numCourses = 2, prerequisites = [[1,0]]
+Output: true
+Explanation: There are a total of 2 courses to take. 
+To take course 1 you should have finished course 0. So it is possible.
+
+Example 2:
+Input: numCourses = 2, prerequisites = [[1,0],[0,1]]
+Output: false
+Explanation: There are a total of 2 courses to take. 
+To take course 1 you should have finished course 0, and to take course 0 you should also have finished course 1. So it is impossible.
+ 
+Constraints:
+1 <= numCourses <= 2000
+0 <= prerequisites.length <= 5000
+prerequisites[i].length == 2
+0 <= ai, bi < numCourses
+All the pairs prerequisites[i] are unique.
+__________________________________________________
+
+SOLUTION
+
+1. Create a map preMap to store all prerequisites for each course.
+2. Loop through the prerequisites array and fill preMap so that each course points to the list of its prerequisites.
+3. Use a DFS function (dfs) to check if a course can be completed:
+    If the course is already being visited in the current path → there's a cycle, so return false.
+    If the course has no prerequisites left → it's already processed, return true.
+4. In the dfs, for every prerequisite of a course, recursively check if it can be completed.
+5. After finishing a course successfully, mark it as done by:
+    Removing it from the visiting set.
+    Clearing its prerequisites in preMap to avoid re-processing.
+6. Finally, check each course one by one. If any course cannot be finished, return false. Otherwise, return true.
+
+TIME: O(V+E)
+SPACE: O(V+E)
