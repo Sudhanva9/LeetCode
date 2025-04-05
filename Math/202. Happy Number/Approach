@@ -1,0 +1,40 @@
+Write an algorithm to determine if a number n is happy.
+A happy number is a number defined by the following process:
+Starting with any positive integer, replace the number by the sum of the squares of its digits.
+Repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1.
+Those numbers for which this process ends in 1 are happy.
+Return true if n is a happy number, and false if not.
+
+Example 1:
+Input: n = 19
+Output: true
+Explanation:
+12 + 92 = 82
+82 + 22 = 68
+62 + 82 = 100
+12 + 02 + 02 = 1
+
+Example 2:
+Input: n = 2
+Output: false
+ 
+Constraints:
+1 <= n <= 231 - 1
+_______________________________________
+
+SOLUTION
+
+1. Create a Set to keep track of numbers we’ve already seen (visit).
+2. Loop while n has not been seen before:
+3. Add the current number n to the set.
+    Replace n with the sum of the squares of its digits (using a helper method).
+    If n becomes 1, return true — this means it's a happy number.
+    If the loop ends because n is already in the set, return false — this means we’re in a cycle, so n is not happy.
+4. The helper method sumOfSquares(n):
+    Extract each digit from n.
+    Square the digit and add it to the total.
+    Repeat until all digits are processed.
+    Return the total sum.
+
+TIME: O(1)
+SPACE: O(n)
