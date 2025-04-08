@@ -1,0 +1,25 @@
+Given a list of Integer "nums" and an Integer "size", compute the average of elements in a sliding window of exactly "size" elements.
+Return a list containing the results of these computations using Integer Division.
+
+Example:
+I/P : nums = [5, 2, 8, 14, 3], size = 3
+O/P : [5, 8, 8]
+
+(5+2+8)/3 = 5
+(2+8+14)/3 = 8
+(8+14+3)/3 = 8
+______________________________________
+
+SOLUTION
+
+1. Create an empty list res to store the moving averages.
+2. Initialize windowSum to keep track of the sum of the current window of numbers.
+3. Loop through each index r in the array nums:
+      Add the current number nums[r] to windowSum.
+      Calculate the left boundary of the window as l = r - size.
+      If l >= 0, subtract nums[l] from windowSum to remove the number that's no longer in the window.
+      If the window has reached the required size (i.e., r >= size - 1), divide windowSum by size and add the result to res.
+4. After the loop, return the list res containing all the moving averages.
+
+TIME: O(n)
+SPACE: O(1) - Not including the o/p list
