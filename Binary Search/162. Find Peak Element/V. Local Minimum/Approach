@@ -1,0 +1,11 @@
+SOLUTION
+
+1. We are using binary search to find a local minimum in an unsorted array.
+2. We choose the mid index.
+3. If mid is smaller than both neighbors (or the only neighbor, if it's an edge), it is a local minimum → return it.
+4. If the left neighbor is smaller, the local minimum must be on the left, so search left.
+5. Otherwise, the local minimum is on the right, so search right.
+6. We do this until we find and return a valid local minimum.
+
+TIME: O(log n)
+SPACE: O(1)
