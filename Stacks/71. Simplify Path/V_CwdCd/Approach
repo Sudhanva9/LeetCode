@@ -1,0 +1,37 @@
+You are provided with an absolute path representing the current working directory cwd in a Unix-style file system. Additionally, you are given a relative path, denoted as cd, which
+instructs a change to the current working directory. Your task is to determine and output the simplified canonical path that results from applying the relative path, cd, to the
+initial cwd.
+Return the simplified canonical path.
+
+Example 1:
+Input: cwd ="/a/b/c", cd ="/d/./e"
+Output: "/d/e"
+
+Example 2:
+Input: cwd ="", cd ="/d/./e"
+Output: "/d/e"
+
+Example 3:
+Input: cwd ="/a/b/c", cd =""
+Output: "/a/b/c"
+
+Example 4:
+Input: cwd ="/a/b", cd =".//c/ .. / .. /d/f"
+Output: "/a/d/f"
+
+__________________________________________________
+
+SOLUTION
+
+1. Check if cd is empty: If it is, return the current working directory (cwd) as it is.
+2. Handle absolute path: If cd starts with /, treat it as if you're starting from the root, so reset cwd to an empty string.
+3. Parse cwd: Split the cwd into parts using / and push each non-empty part onto a stack.
+4. Apply cd: Split the cd into parts and:
+    If the part is .., pop the stack to go up one directory (if possible).
+    If the part is a valid directory name (not . or empty), push it onto the stack.
+5. Return the simplified path:
+    If the stack is empty (meaning you're at the root), return /.
+    Otherwise, join the stack into a single path, prepending / to it.
+
+TIME: O(n)
+SPACE: O(n)
