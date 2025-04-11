@@ -1,0 +1,28 @@
+You are conducting an A/B test and need to randomly pick a person from a user base spread across multiple cities. Each city has a known population, and you need to ensure that the probability of choosing a user from each city is proportional to the city's population.
+You are given a 0-indexed array of pairs city_populations, where each pair consists of a string representing the name of the ith city, and an integer representing the population of the 1th city (in millions, but treat these values as if in ones for computation purposes).
+You need to implement the function pickIndex(), which randomly picks a person in and returns the name of the city the person is in.
+
+Example 1:
+Input
+["Solution","pickIndex","pickIndex"]
+[[["Seattle", 500], ["New York", 900], ["Los Angeles",
+400]], [], []]
+Output
+[null,"New York","Los Angeles"]
+
+Explanation
+Solution solution = new Solution([["Seattle", 500],
+["New York", 900], ["Los Angeles", 400]]);
+solution. pickIndex(); // return "New York". It is
+returning the second element (index = 1) that has a
+probability of 900/(500+900+400).
+_____________________________________________
+
+SOLUTION
+
+1. Generate a random number from 0 to the total sum of all weights minus 1.
+2. Use binary search to find the smallest index such that the prefix sum at that index is greater than the random number.
+3. Return that index, which corresponds to the city picked proportionally based on its population weight.
+
+TIME: O(log n)
+SPACE: O(n)
