@@ -1,0 +1,39 @@
+Given the root of a binary tree, imagine yourself standing on the
+right side of it and your best friend standing on the left side,
+both observing the tree from their respective sides.
+
+Return the values of the nodes you can both see, first from the
+left side (bottom to top), followed by those from the right side
+(top to bottom)
+
+Example 1:
+Input: root = [1,2,3,null,5,null,4]
+Output: [5,2,1,3,4]
+
+Example 2:
+Input: root = [1,2,3,4,null,null,null,5]
+Output: [5,4,2,1,3]
+_____________________________________
+
+SOLUTION
+
+1. Check if the tree is empty
+    If yes, return an empty list.
+2. Initialize two lists
+    One for the first (left-most) node of each level: leftSide.
+    One for the last (right-most) node of each level: rightSide.
+3. Use a queue for level-order traversal (BFS)
+    Start by pushing the root into the queue.
+4. Traverse the tree level by level
+    For each level, get the number of nodes.
+    Go through each node:
+        If it's the first node at this level, add its value to leftSide.
+        If it's the last node at this level, add its value to rightSide.
+        Add its children (left and right) to the queue.
+5. Build the final result
+    Reverse leftSide and add to the result.
+    Then add all elements from rightSide, skipping the first one to avoid duplicates.
+6. Return the final result list.
+
+TIME: O(n)
+SPACE: O(n)
