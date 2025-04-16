@@ -1,0 +1,37 @@
+Koko loves to eat bananas. There are n piles of bananas, the ith pile has piles[i] bananas. The guards have gone and will come back in h hours.
+Koko can decide her bananas-per-hour eating speed of k. Each hour, she chooses some pile of bananas and eats k bananas from that pile. If the pile has less than k bananas, she eats all of them instead and will not eat any more bananas during this hour.
+Koko likes to eat slowly but still wants to finish eating all the bananas before the guards return.
+Return the minimum integer k such that she can eat all the bananas within h hours.
+
+Example 1:
+Input: piles = [3,6,7,11], h = 8
+Output: 4
+
+Example 2:
+Input: piles = [30,11,23,4,20], h = 5
+Output: 30
+
+Example 3:
+Input: piles = [30,11,23,4,20], h = 6
+Output: 23
+ 
+Constraints:
+1 <= piles.length <= 104
+piles.length <= h <= 109
+1 <= piles[i] <= 109
+_______________________________________
+
+SOLUTION
+
+1. We want to find the minimum eating speed k such that Koko can finish all bananas in h hours.
+2. Set the search range for k between 1 and the maximum pile size (because Koko can’t eat faster than the biggest pile).
+3. Use binary search within this range:
+    For each k, calculate the total hours needed to eat all piles at that speed.
+    Use Math.ceil(p / k) to compute how many hours it takes to eat each pile.
+4. If the total time is less than or equal to h, try a smaller speed to minimize it.
+5. If the total time is more than h, increase the speed.
+6. Keep track of the minimum speed that works.
+7. Return that minimum speed at the end.
+
+TIME: O(n∗logm)
+SAPCE: O(1)
