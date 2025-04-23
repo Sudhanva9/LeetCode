@@ -1,0 +1,30 @@
+Given a string s, rearrange the characters of s so that any two adjacent characters are not the same.
+Return any possible rearrangement of s or return "" if not possible.
+
+Example 1:
+Input: s = "aab"
+Output: "aba"
+
+Example 2:
+Input: s = "aaab"
+Output: ""
+
+Constraints:
+1 <= s.length <= 500
+s consists of lowercase English letters.
+_____________________________________
+
+SOLUTION
+
+1. Count how many times each character appears in the string.
+2. Use a max heap (priority queue) to always pick the character with the highest remaining frequency.
+3. Keep track of the previously used character, so we don’t place the same character next to itself.
+4. In each step:
+    Add the current most frequent character to the result.
+    Decrease its count.
+    If there was a previous character waiting to be reused, push it back into the heap.
+5. If we still have a leftover character that can’t be placed, return an empty string (impossible to rearrange).
+6. Otherwise, return the successfully built string.
+
+TIME: O(n)
+SPACE: O(n) 
