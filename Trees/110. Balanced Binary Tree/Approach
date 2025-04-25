@@ -1,0 +1,33 @@
+Given a binary tree, determine if it is height-balanced.
+
+Example 1:
+Input: root = [3,9,20,null,null,15,7]
+Output: true
+
+Example 2:
+Input: root = [1,2,2,3,3,null,null,4,4]
+Output: false
+
+Example 3:
+Input: root = []
+Output: true
+ 
+Constraints:
+The number of nodes in the tree is in the range [0, 5000].
+-104 <= Node.val <= 104
+_______________________________________________________
+
+SOLUTION
+
+1. Use depth-first search (DFS) to check every subtree of the binary tree.
+2. For each node, calculate:
+    Whether its left and right subtrees are balanced.
+    Their respective heights.
+3. A subtree is balanced if:
+    Both left and right subtrees are balanced.
+    And the height difference between them is not more than 1.
+4. Return a pair: one for balance status (1 = true, 0 = false) and one for height.
+5. Finally, return true if the whole tree is balanced based on the DFS result.
+
+TIME: O(n)
+SPACE: O(h)
