@@ -1,0 +1,40 @@
+Given a string s and a dictionary of strings wordDict, return true if s can be segmented into a space-separated sequence of one or more dictionary words.
+Note that the same word in the dictionary may be reused multiple times in the segmentation.
+
+Example 1:
+Input: s = "leetcode", wordDict = ["leet","code"]
+Output: true
+Explanation: Return true because "leetcode" can be segmented as "leet code".
+
+Example 2:
+Input: s = "applepenapple", wordDict = ["apple","pen"]
+Output: true
+Explanation: Return true because "applepenapple" can be segmented as "apple pen apple".
+Note that you are allowed to reuse a dictionary word.
+
+Example 3:
+Input: s = "catsandog", wordDict = ["cats","dog","sand","and","cat"]
+Output: false
+ 
+
+Constraints:
+1 <= s.length <= 300
+1 <= wordDict.length <= 1000
+1 <= wordDict[i].length <= 20
+s and wordDict[i] consist of only lowercase English letters.
+All the strings of wordDict are unique.
+______________________________________________________
+
+SOLUTION
+
+1. Create a boolean dp array where dp[i] represents whether the substring starting at index i can be segmented into words from the dictionary.
+2. Initialize the last element dp[s.length()] = true, since an empty string can always be segmented.
+3. Loop backwards through the string from the end to the start.
+4. For each position i, check every word in the dictionary:
+      If the word fits starting at i and matches the substring,
+      And if the rest of the string after that word (dp[i + word.length()]) is true,
+      Then mark dp[i] as true and break early.
+5. Return dp[0] to see if the full string can be broken into dictionary words.
+
+TIME: O(n * m * l)
+SPACE: O(n)
