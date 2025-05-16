@@ -1,0 +1,9 @@
+SOLUTION
+
+1. Create a new array ans with double the length of the original array nums.
+2. Loop twice through the nums array to copy its elements into ans one after the other.
+3. Use a running index idx to place each element in the correct position in ans.
+4. Return the ans array which now contains nums concatenated with itself.
+
+TIME: O(n)
+SPACE: O(n)
