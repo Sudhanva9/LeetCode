@@ -1,0 +1,27 @@
+Write a function that reverses a string. The input string is given as an array of characters s.
+You must do this by modifying the input array in-place with O(1) extra memory.
+
+Example 1:
+Input: s = ["h","e","l","l","o"]
+Output: ["o","l","l","e","h"]
+
+Example 2:
+Input: s = ["H","a","n","n","a","h"]
+Output: ["h","a","n","n","a","H"]
+
+Constraints:
+1 <= s.length <= 105
+s[i] is a printable ascii character.
+____________________________________
+
+SOLUTION
+
+TWO POINTERS - 
+
+1. Start with two pointers: one at the beginning (left) and one at the end (right) of the array.
+2. Keep swapping the characters at left and right.
+3. After each swap, move left one step forward and right one step backward.
+4. Stop when left crosses right – this means the whole string has been reversed in place.
+
+TIME: O(n)
+SPACE: O(1)
