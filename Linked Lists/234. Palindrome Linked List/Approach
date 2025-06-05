@@ -1,0 +1,31 @@
+Given the head of a singly linked list, return true if it is a palindrome or false otherwise.
+
+Example 1:
+Input: head = [1,2,2,1]
+Output: true
+
+Example 2:
+Input: head = [1,2]
+Output: false
+
+Constraints:
+The number of nodes in the list is in the range [1, 105].
+0 <= Node.val <= 9
+ 
+Follow up: Could you do it in O(n) time and O(1) space?
+______________________________________
+
+SOLUTION
+
+STACK - 
+
+1. If the list is empty, it's considered a palindrome.
+2. Traverse the entire list and push each node’s value into a stack.
+3. Reset the pointer to the head of the list.
+4. Traverse the list again, this time popping values from the stack.
+5. Compare each node’s value with the popped value.
+6. If any value doesn’t match, return false.
+7. If all values match, return true — the list is a palindrome.
+
+TIME: O(n)
+SPACE: O(n)
