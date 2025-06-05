@@ -17,7 +17,7 @@ ______________________________________
 
 SOLUTION
 
-STACK - 
+I) STACK - 
 
 1. If the list is empty, it's considered a palindrome.
 2. Traverse the entire list and push each node’s value into a stack.
@@ -29,3 +29,16 @@ STACK -
 
 TIME: O(n)
 SPACE: O(n)
+
+-----------------------------
+
+II) TWO POINTERS - 
+
+1. Use slow and fast pointers to find the middle of the linked list.
+2. Reverse the second half of the list starting from the node after the middle.
+3. Set one pointer at the head and the other at the start of the reversed second half.
+4. Compare values from both halves one by one.
+5. If all values match, it's a palindrome; otherwise, it's not.
+
+TIME: O(n)
+SPACE: O(1)
