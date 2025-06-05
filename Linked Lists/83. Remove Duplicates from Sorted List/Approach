@@ -1,0 +1,28 @@
+Given the head of a sorted linked list, delete all duplicates such that each element appears only once. Return the linked list sorted as well.
+
+Example 1:
+Input: head = [1,1,2]
+Output: [1,2]
+
+Example 2:
+Input: head = [1,1,2,3,3]
+Output: [1,2,3]
+
+Constraints:
+The number of nodes in the list is in the range [0, 300].
+-100 <= Node.val <= 100
+The list is guaranteed to be sorted in ascending order.
+___________________________________
+
+SOLUTION
+
+1. If the list is empty, return null.
+2. Start with two pointers: prev at the first node and current at the second node.
+3. Traverse the list using current.
+4. If current has the same value as prev, skip the duplicate by updating prev.next.
+5. If the values are different, move prev forward.
+6. Always move current to the next node.
+7. Return the modified list starting from head.
+
+TIME: O(n)
+SPACE: O(1)
