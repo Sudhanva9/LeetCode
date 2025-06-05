@@ -1,0 +1,32 @@
+Given the head of a linked list and an integer val, remove all the nodes of the linked list that has Node.val == val, and return the new head.
+
+Example 1:
+Input: head = [1,2,6,3,4,5,6], val = 6
+Output: [1,2,3,4,5]
+
+Example 2:
+Input: head = [], val = 1
+Output: []
+
+Example 3:
+Input: head = [7,7,7,7], val = 7
+Output: []
+ 
+Constraints:
+The number of nodes in the list is in the range [0, 104].
+1 <= Node.val <= 50
+0 <= val <= 50
+________________________________________
+
+SOLUTION
+
+1. First, remove all nodes at the beginning of the list that match the given value.
+2. Then, start iterating from the updated head.
+3. Keep track of the current and previous nodes.
+4. If the current node has the target value, skip it by linking the previous node to the next node.
+5. If it doesn't match, move the previous pointer forward.
+6. Continue until the end of the list.
+7. Return the updated head.
+
+TIME: O(n)
+SPACE: O(1)
