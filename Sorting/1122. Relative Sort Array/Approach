@@ -1,0 +1,45 @@
+Given two arrays arr1 and arr2, the elements of arr2 are distinct, and all elements in arr2 are also in arr1.
+Sort the elements of arr1 such that the relative ordering of items in arr1 are the same as in arr2. Elements that do not appear in arr2 should be placed at the end of arr1 in ascending order.
+
+Example 1:
+Input: arr1 = [2,3,1,3,2,4,6,7,9,2,19], arr2 = [2,1,4,3,9,6]
+Output: [2,2,2,1,4,3,3,9,6,7,19]
+
+Example 2:
+Input: arr1 = [28,6,22,8,44,17], arr2 = [22,28,8,6]
+Output: [22,28,8,6,17,44]
+ 
+Constraints:
+1 <= arr1.length, arr2.length <= 1000
+0 <= arr1[i], arr2[i] <= 1000
+All the elements of arr2 are distinct.
+Each arr2[i] is in arr1.
+___________________________________
+
+SOLUTION
+
+1. Create a map to count the frequency of each number in arr1.
+2. Create a result array res to store the final sorted elements.
+3. For each number in arr2, add it to res as many times as it appears in the map and then remove it from the map.
+4. For the remaining numbers left in the map (i.e., not in arr2), collect them in a list.
+5. Sort this list of remaining numbers.
+6. Add the sorted remaining numbers to the result array.
+7. Return the result array.
+
+TIME: O(m + n log n)
+SPACE: O(m + n)
+
+Let n be the size of arr1 and m be the size of arr2.
+Time complexity: O(m+nlogn)
+Initializing the map with elements from arr2 takes O(m) time.
+Counting occurrences of elements in arr1 and updating the map or adding to the remaining array takes O(n) time.
+Sorting the remaining array takes O(nlogn) time.
+Adding elements to the result array based on the map and the relative order of arr2 takes O(n) time.
+Adding the sorted remaining elements to the result list takes O(n) time.
+Combining these steps, the overall time complexity is O(m+n+nlogn+n), which we can simplify to O(m+nlogn).
+
+Space complexity: O(n+m)
+We use an unordered map to store the frequencies of elements in arr2. Since arr2 has m unique elements, the space required is O(m).
+We store elements from arr1 that are not present in arr2. In the worst case, all n elements of arr1 are unique and not in arr2, requiring O(n) space.
+Additionally some extra space is used when we sort arrays in place. The space complexity of the sorting algorithm depends on the programming language.
+Java/C++: O(n+m+logn), which simplifies to O(n+m)
