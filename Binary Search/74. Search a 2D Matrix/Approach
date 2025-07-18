@@ -1,0 +1,38 @@
+You are given an m x n integer matrix matrix with the following two properties:
+Each row is sorted in non-decreasing order.
+The first integer of each row is greater than the last integer of the previous row.
+Given an integer target, return true if target is in matrix or false otherwise.
+You must write a solution in O(log(m * n)) time complexity.
+
+Example 1:
+Input: matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3
+Output: true
+
+Example 2:
+Input: matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 13
+Output: false
+
+Constraints:
+m == matrix.length
+n == matrix[i].length
+1 <= m, n <= 100
+-104 <= matrix[i][j], target <= 104
+__________________________________________
+
+SOLUTION
+
+1. Get the number of rows (ROWS) and columns (COLS) from the matrix.
+2. Use binary search on the rows to find a potential row where the target might exist:
+    Initialize top = 0 and bot = ROWS - 1.
+    While top <= bot, pick the middle row.
+    If the target is greater than the last element of the row, discard the upper half (top = row + 1).
+    If the target is less than the first element, discard the lower half (bot = row - 1).
+    Else, we found the row that may contain the target.
+3. If no such row is found (top > bot), return false.
+4. Use binary search within the identified row:
+    Search for the target by checking the middle element.
+    If target is greater, move right; if smaller, move left; if equal, return true.
+5. If the target is not found after searching the row, return false.
+
+TIME: O(log (m*n))
+SPACE: O(1)
