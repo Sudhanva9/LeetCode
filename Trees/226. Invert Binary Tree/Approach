@@ -1,0 +1,29 @@
+Given the root of a binary tree, invert the tree, and return its root.
+
+Example 1:
+Input: root = [4,2,7,1,3,6,9]
+Output: [4,7,2,9,6,3,1]
+
+Example 2:
+Input: root = [2,1,3]
+Output: [2,3,1]
+
+Example 3:
+Input: root = []
+Output: []
+
+Constraints:
+The number of nodes in the tree is in the range [0, 100].
+-100 <= Node.val <= 100
+______________________________________
+
+SOLUTION
+
+1. If the root is null, return null (base case for recursion).
+2. Swap the left and right children of the current node.
+3. Recursively invert the left subtree (which was originally the right subtree).
+4. Recursively invert the right subtree (which was originally the left subtree).
+5. After both subtrees are inverted and the current node's children are swapped, return the root.
+
+TIME: O(n)
+SPACE: O(n)
